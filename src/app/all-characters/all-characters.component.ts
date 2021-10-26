@@ -1,37 +1,8 @@
 
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { CharactersService } from '../shared/characters.service';
+import { DataFromAPI, ImagesFromApi, InfoFromApi } from '../shared/types/api';
 
-const RICK_AND_MORTY_API_MAIN_URL = "https://rickandmortyapi.com/api/character";
-
-type ImagesFromApi = {
-	name: string;
-	image: string;
-	id: number;
-};
-
-type URLNameApi = { name: string; url: string };
-
-type InfoFromApi = {
-    count: number,
-    pages: number,
-    next: string,
-    prev: null | string
-  }
-
-type DataFromAPI = {
-	id: number;
-	name: string;
-	status: string;
-	type: string;
-	gender: string;
-	origin: URLNameApi;
-	location: URLNameApi;
-	image: string;
-	episode: string[];
-	url: string;
-	created: string;
-};
 
 @Component({
   selector: 'app-all-characters',
@@ -49,14 +20,14 @@ title = 'rick-and-morty';
   };
   charactersNameAndImage:ImagesFromApi[] = []
 
-  constructor(private http: HttpClient){}
+  constructor(private characterService: CharactersService){}
 
   ngOnInit(){
     this.getAllData();
   }
 
   getAllData(){
-    this.http.get<{ info: InfoFromApi; results: DataFromAPI[] }>(RICK_AND_MORTY_API_MAIN_URL).subscribe(char => {
+    this.characterService.getAllCharacters().subscribe(char => {
       this.characters = char.results;
       this.info = char.info;
       this.pickCharactersNameAndImage(this.characters);

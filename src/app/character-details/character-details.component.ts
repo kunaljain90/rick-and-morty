@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { CharactersService } from './../shared/characters.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -31,7 +31,7 @@ export class CharacterDetailsComponent implements OnInit {
   species: ''
 };
 
-  constructor(private router: ActivatedRoute, private http: HttpClient) { }
+  constructor(private router: ActivatedRoute, private characterService:CharactersService) { }
 
   ngOnInit(): void {
     this.id = this.router.snapshot.paramMap.get('id');
@@ -39,7 +39,8 @@ export class CharacterDetailsComponent implements OnInit {
   }
 
   getCharacterDetail(){
-      this.http.get<DataFromAPI>(`${RICK_AND_MORTY_API_MAIN_URL}/${this.id}`).subscribe(char => { this.characterDetail = char });
+    if(!this.id) {return};
+      this.characterService.getCharacterDetail(this.id).subscribe(char => this.characterDetail = char);
   }
 
 }
