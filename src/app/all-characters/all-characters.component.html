@@ -1,0 +1,11 @@
+<section class='box centerWithFlex'>
+   <h1>Rick and Morty characters list:</h1>
+   <ul class='characters'>
+      <li *ngFor="let character of charactersNameAndImage">
+         <a routerLink="character/{{character.id}}" class='centerWithFlex card'>
+            <h3>{{character.name}}</h3>
+            <img src="{{character.image}}" alt="{{character.name}}">
+         </a>
+      </li>
+   </ul>
+</section>
