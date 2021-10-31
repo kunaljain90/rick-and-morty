@@ -1,14 +1,13 @@
-<section class="box centerWithFlex characterDetail">
-   <h1>{{characterDetail.name}}</h1>
-   <img class="imgDetails" src="{{characterDetail.image}}" alt="{{characterDetail.name}}">
-   <article class="centerWithFlex">
-      <p><span>Gender:</span> {{characterDetail.gender}}</p>
-      <p><span>Species:</span> {{characterDetail.species}}</p>
-      <p><span>Status:</span> {{characterDetail.status}}</p>
-      <p><span>Episodes: </span> <span
-            *ngFor="let episode of characterDetail.episode">{{episode.slice(-2).replaceAll('/','')}},</span>
-      </p>
-   </article>
-
-
+<section class="box centerWithFlex characterDetail" *ngIf="(characterDetail$ | async) as character">
+  <h1>{{ character.name}}</h1>
+  <img class="imgDetails" src="{{ character.image }}" alt="{{ character.image }}" />
+  <article class="centerWithFlex">
+    <p><span>Gender:</span> {{ character.gender }}</p>
+    <p><span>Species:</span> {{ character.species }}</p>
+    <p><span>Status:</span> {{ character.status }}</p>
+    <p>
+      <span>Episodes: </span>
+      <span *ngFor="let episode of character.episode">{{ episode.slice(-2).replaceAll("/", "") }},</span>
+    </p>
+  </article>
 </section>

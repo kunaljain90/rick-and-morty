@@ -5,12 +5,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { CharacterDetailsComponent } from './character-details/character-details.component';
 
 const routes: Routes = [
-  {path: '', component: AllCharactersComponent},
-  {path: 'character/:id', component: CharacterDetailsComponent}
+  { path: '', component: AllCharactersComponent },
+  { path: 'character/:id', component: CharacterDetailsComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

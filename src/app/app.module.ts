@@ -6,19 +6,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CharacterDetailsComponent } from './character-details/character-details.component';
 import { AllCharactersComponent } from './all-characters/all-characters.component';
+import { ListItemLinkComponent } from './list-item-link/list-item-link.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CharacterDetailsComponent,
-    AllCharactersComponent
+    AllCharactersComponent,
+    ListItemLinkComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
