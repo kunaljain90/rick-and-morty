@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { CharacterDetailsComponent } from './character-details/character-details.component';
 import { AllCharactersComponent } from './all-characters/all-characters.component';
 import { ListItemLinkComponent } from './list-item-link/list-item-link.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { ListItemLinkComponent } from './list-item-link/list-item-link.component
     CharacterDetailsComponent,
     AllCharactersComponent,
     ListItemLinkComponent,
+    SearchComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],

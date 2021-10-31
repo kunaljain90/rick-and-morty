@@ -1,0 +1,13 @@
+.search {
+   display: flex;
+   gap: 15px;
+   align-items: center;
+   padding: 15px;
+   font-size: clamp(14px, 2.5vw, 16px);
+
+  input {
+   font-size: clamp(14px, 2.5vw, 16px);
+    padding: 10px 15px;
+    border: 1px solid rgb(224, 223, 223);
+  }
+}

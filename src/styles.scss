@@ -99,10 +99,11 @@ a {
 }
 
 .pagesList {
-  width: 70%;
-  max-width: 100%;
+  width: 80%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
+  gap: 15px;
 
   li{
     cursor: pointer;
@@ -124,20 +125,6 @@ a {
   padding-top: 50px;
 }
 
-.characterDetail {
-  width: fit-content;
-  height: fit-content;
-  margin: 100px auto;
-
-  p {
-    font-size: 1.1rem;
-  }
-  p > span:first-of-type {
-    font-size: 1.3rem;
-    font-weight: 700;
-  }
-}
-
 .navigation {
   display: flex;
   justify-content: flex-start;
@@ -150,10 +137,6 @@ a {
     font-size: 1.8rem;
     color: $background;
   }
-}
-
-.imgDetails {
-  max-width: 300px;
 }
 
 @media only screen and (min-width: 500px) {

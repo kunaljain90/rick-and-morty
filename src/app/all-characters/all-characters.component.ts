@@ -1,7 +1,8 @@
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { CharactersService } from '../shared/characters.service';
-import { DataFromAPI, ImagesFromApi, InfoFromApi } from '../shared/types/api';
+import { DataFromAPI } from '../shared/types/api';
 @Component({
   selector: 'app-all-characters',
   templateUrl: './all-characters.component.html',
@@ -9,9 +10,14 @@ import { DataFromAPI, ImagesFromApi, InfoFromApi } from '../shared/types/api';
 })
 export class AllCharactersComponent implements OnInit {
   characters$!: Observable<DataFromAPI[]>;
+  searchedCharacter$ = new Subject<string>();
   allPagesArray: number[] = [];
 
-  constructor(private characterService: CharactersService) {}
+  constructor(private characterService: CharactersService) {
+    this.searchedCharacter$
+      .pipe(debounceTime(300), distinctUntilChanged())
+      .subscribe((char) => this.search(char));
+  }
 
   ngOnInit() {
     this.characters$ = this.characterService.getAllCharacters();
@@ -27,9 +33,11 @@ export class AllCharactersComponent implements OnInit {
       );
   }
 
-  getPageNumber(page: any) {
-    this.characters$ = this.characterService.getAllCharactersFromPage(
-      page.innerText
-    );
+  getPageNumber(page: string) {
+    this.characters$ = this.characterService.getAllCharactersFromPage(page);
+  }
+
+  search(term: string) {
+    this.characters$ = this.characterService.searchCharacter(term);
   }
 }

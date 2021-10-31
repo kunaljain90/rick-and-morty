@@ -1,0 +1,26 @@
+.imgDetails {
+  max-width: 300px;
+}
+
+.characterDetail {
+  width: fit-content;
+  height: fit-content;
+  margin: 100px auto;
+
+  p {
+    font-size: 1.1rem;
+  }
+
+  p>span:first-of-type {
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+}
+
+.episodesList {
+     width: 100%;
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-evenly;
+     gap: 15px;
+}

@@ -39,4 +39,12 @@ export class CharactersService {
       }>(`${RICK_AND_MORTY_API_MAIN_URL}/?page=${page}`)
       .pipe(map((el) => el.results));
   }
+
+  searchCharacter(name: string): Observable<DataFromAPI[]> {
+    return this.http
+      .get<{
+        results: DataFromAPI[];
+      }>(`${RICK_AND_MORTY_API_MAIN_URL}/?name=${name}`)
+      .pipe(map((el) => el.results));
+  }
 }

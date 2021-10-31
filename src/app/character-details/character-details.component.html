@@ -5,7 +5,7 @@
     <p><span>Gender:</span> {{ character.gender }}</p>
     <p><span>Species:</span> {{ character.species }}</p>
     <p><span>Status:</span> {{ character.status }}</p>
-    <p>
+    <p class="episodesList">
       <span>Episodes: </span>
       <span *ngFor="let episode of character.episode">{{ episode.slice(-2).replaceAll("/", "") }},</span>
     </p>
