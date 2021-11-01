@@ -1,0 +1,27 @@
+
+.statusBar{
+   display: flex;
+   flex-wrap: wrap;
+   align-items: baseline;
+   gap: 15px;
+
+   .status{
+     font-size: .75rem;
+     text-align: right;
+
+     &Alive{
+        @extend .status;
+        color: green;
+     }
+
+     &Dead {
+        @extend .status;
+       color: red
+     }
+
+     &Unknown {
+       @extend .status;
+       color: gray
+     }
+   }
+}

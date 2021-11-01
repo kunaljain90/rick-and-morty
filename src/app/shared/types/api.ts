@@ -4,6 +4,8 @@ export type ImagesFromApi = {
   id: number;
 };
 
+export type Status = 'Alive' | 'Dead' | 'unknown';
+
 export type URLNameApi = { name: string; url: string };
 
 export type InfoFromApi = {
@@ -16,7 +18,7 @@ export type InfoFromApi = {
 export type DataFromAPI = {
   id: number;
   name: string;
-  status: string;
+  status: Status;
   type: string;
   gender: string;
   species: string;
